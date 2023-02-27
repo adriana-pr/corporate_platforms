@@ -26,22 +26,24 @@ public class Test
 
         Console.WriteLine("Ведіть кількість рядків і стовпців, числа розділені пробілом.");
         string line;
-        int nRows, nColumns;
+        int nRows, nColumns, countElements=0;
         line = Console.ReadLine();
 
-        nRows = Int32.Parse(line.Split(' ')[0]);
-        nColumns = Int32.Parse(line.Split(' ')[1]);
+        nRows = Int32.Parse(line.Split(line[1])[0]);
+        nColumns = Int32.Parse(line.Split(line[1])[1]);
 
         Student[] students = new Student[nRows * nColumns];
         Student[,] studentsTwo = new Student[nRows, nColumns];
+        Student[][] studentsToothedArray = new Student[nRows][];
+
         Exam[] exams = new Exam[2];
-        exams[0] = new Exam("wed-programming", 4, new DateTime(2023, 1, 23));
+        exams[0] = new Exam("wed-programming", 5, new DateTime(2023, 1, 23));
         exams[1] = new Exam("english", 4, new DateTime(2023, 1, 17));
 
         for (int i = 0; i < nRows * nColumns; i++)
         {
             students[i] = new Student();
-            students[i].addExams(exams);
+            students[i].AddExams(exams);
         }
 
         for (int i = 0; i < nRows; i++)
@@ -49,7 +51,28 @@ public class Test
             for (int j = 0; j < nColumns; j++)
             {
                 studentsTwo[i, j] = new Student();
-                studentsTwo[i, j].addExams(exams);
+                studentsTwo[i, j].AddExams(exams);
+            }
+        }
+
+        for (int i = 0; i < nRows; i++)
+        {
+             studentsToothedArray[i] = new Student[nColumns-i];
+              countElements+= studentsToothedArray[i].Length;
+        }
+        
+        if (countElements!= nRows* nColumns)
+        {
+            countElements = studentsToothedArray[0].Length + (nRows * nColumns - countElements);
+            studentsToothedArray[0] = new Student[countElements];
+        }
+
+        for (int i = 0; i < nRows; i++)
+        {
+            for (int j = 0; j < studentsToothedArray[i].Length; j++)
+            {
+                studentsToothedArray[i][j] = new Student();
+                studentsToothedArray[i][j].AddExams(exams);
             }
         }
 
@@ -68,14 +91,24 @@ public class Test
         //    }
         //}
 
+        //Console.WriteLine("\nЗубчастий масив: ");
+        //for (int i = 0; i < nRows; i++)
+        //{
+        //    for (int j = 0; j < studentsToothedArray[i].Length; j++)
+        //    {
+        //        Console.WriteLine(studentsToothedArray[i][j] + "\n");
+        //    }
+        //}
+
+
         int timeStart = System.Environment.TickCount;
         for (int i = 0; i < nRows * nColumns; i++)
         {
-            students[i].averegaMarks(students[i].Exam);
+            students[i].AveregaMarks();
         }
+
         int timeEnd = System.Environment.TickCount;
         int time = timeEnd - timeStart;
-
         Console.WriteLine("\nЧас виконання одновимірного масиву: " + time);
 
         timeStart = System.Environment.TickCount;
@@ -83,12 +116,25 @@ public class Test
         {
             for (int j = 0; j < nColumns; j++)
             {
-                studentsTwo[i, j].averegaMarks(studentsTwo[i, j].Exam);
+                studentsTwo[i, j].AveregaMarks();
+
             }
         }
         timeEnd = System.Environment.TickCount;
         time = timeEnd - timeStart;
-        Console.WriteLine("\nЧас виконання диовимірного масиву: " + time);
+        Console.WriteLine("\nЧас виконання двовимірного масиву: " + time);
+
+        timeStart = System.Environment.TickCount;
+        for (int i = 0; i < nRows; i++)
+        {
+            for (int j = 0; j < studentsToothedArray[i].Length; j++)
+            {
+                studentsToothedArray[i][j].AveregaMarks();
+            }
+        }
+        timeEnd = System.Environment.TickCount;
+        time = timeEnd - timeStart;
+        Console.WriteLine("\nЧас виконання зубчастого масиву: " + time);
 
     }
 }

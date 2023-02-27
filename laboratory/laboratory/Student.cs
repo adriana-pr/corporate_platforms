@@ -16,9 +16,6 @@ namespace laboratory
             Person = person;
             Education = education;
             Group = group;
-
-            Exam = new Exam[1];
-            Exam[0] = new Exam();
         }
 
         public Student() : this(person: new Person(), education: new Education(), group: 311)
@@ -70,52 +67,70 @@ namespace laboratory
 
         public override string ToString()
         {
+            if (Exam == null)
+                return "Student: \n" + Person + " \n" + Education + " \n" + Group;
+
             string examsString = string.Empty;
             foreach (Exam element in Exam)
             {
-                    examsString += element.ToString();
+                examsString += element.ToString();
 
             }
 
-            return "Student: \n" + Person + " \n" + Education + " \n" + Group+ " \n" + examsString;
+                return "Student: \n" + Person + " \n" + Education + " \n" + Group+ " \n" + examsString;
         }
 
         public string ToShortString()
         {
-            return "Student: \n" + Person + " \n" + Education + " \n" + Group + " \n" + averegaMarks(Exam);
+            return "Student: \n" + Person + " \n" + Education + " \n" + Group + " \n" + AveregaMarks();
         }
 
-        public double averegaMarks(Exam []exams)
+        public double AveregaMarks()
         {
-            int sumMarks=0;
+            if (Exam == null)
+                return 0;
+
+             int sumMarks =0;
       
-            for (int i=0; i< exams.Length;i++)
+            for (int i=0; i< Exam.Length;i++)
             {
-                sumMarks += exams[i].Mark;
+                sumMarks += Exam[i].Mark;
             }
-            return ((double)sumMarks/ (double)exams.Length);
+            return ((double)sumMarks/ (double)Exam.Length);
         }
 
-        public void addExams(Exam[] examsNew)
+
+        public void AddExams(Exam[] examsNew)
         {
-            int n = Exam.Length;
-            Exam[] examsArray = new Exam[n];
-
-            for (int i = 0; i < n; i++)
+            if (Exam != null)
             {
-                examsArray[i] = Exam[i];
+                int n = Exam.Length;
+                Exam[] examsArray = new Exam[n];
+
+                for (int i = 0; i < n; i++)
+                {
+                    examsArray[i] = Exam[i];
+                }
+                Exam = new Exam[examsNew.Length + n];
+
+                for (int i = 0; i < examsArray.Length; i++)
+                {
+                    Exam[i] = examsArray[i];
+                }
+
+                for (int i = 0; i < examsNew.Length; i++)
+                {
+                    Exam[i + n] = examsNew[i];
+                }
             }
 
-            Exam = new Exam[examsNew.Length + n];
-
-            for (int i = 0; i < examsArray.Length; i++)
+            else
             {
-                Exam[i] = examsArray[i];
-            }
-
-            for (int i = 0; i < examsNew.Length; i++)
-            {
-                Exam[i + n] = examsNew[i];
+                Exam = new Exam[examsNew.Length];
+                for (int i = 0; i < examsNew.Length; i++)
+                {
+                    Exam[i] = examsNew[i];
+                }
             }
         }
     }
