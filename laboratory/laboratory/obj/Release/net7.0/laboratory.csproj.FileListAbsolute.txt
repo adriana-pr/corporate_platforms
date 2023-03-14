@@ -1,0 +1,15 @@
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/bin/Release/net7.0/laboratory
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/bin/Release/net7.0/laboratory.deps.json
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/bin/Release/net7.0/laboratory.runtimeconfig.json
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/bin/Release/net7.0/laboratory.dll
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/bin/Release/net7.0/laboratory.pdb
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.csproj.AssemblyReference.cache
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.AssemblyInfoInputs.cache
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.AssemblyInfo.cs
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.csproj.CoreCompileInputs.cache
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.dll
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/refint/laboratory.dll
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.pdb
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/laboratory.genruntimeconfig.cache
+/Users/mac/Documents/ПКІС/Lab_1/laboratory/laboratory/obj/Release/net7.0/ref/laboratory.dll

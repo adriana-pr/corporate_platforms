@@ -1,4 +1,5 @@
 ﻿using System;
+ using System.IO;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace laboratory;
@@ -24,13 +25,15 @@ public class Test
         //Console.WriteLine(student2.ToString());
 
 
-        Console.WriteLine("Ведіть кількість рядків і стовпців, числа розділені пробілом.");
-        string line;
+        Console.WriteLine("Ведіть кількість рядків і стовпців, числа можуть бути розділені символами: ' ', ',', '.', ':' ");
+        string[] number;
         int nRows, nColumns, countElements=0;
-        line = Console.ReadLine();
+        string line = Console.ReadLine();
+        char[] delimiterChars = { ' ', ',', '.', ':' };
 
-        nRows = Int32.Parse(line.Split(line[1])[0]);
-        nColumns = Int32.Parse(line.Split(line[1])[1]);
+        number = line.Split(delimiterChars);
+        nRows = Int32.Parse(number[0]);
+        nColumns = Int32.Parse(number[1]);
 
         Student[] students = new Student[nRows * nColumns];
         Student[,] studentsTwo = new Student[nRows, nColumns];
@@ -57,11 +60,11 @@ public class Test
 
         for (int i = 0; i < nRows; i++)
         {
-             studentsToothedArray[i] = new Student[nColumns-i];
-              countElements+= studentsToothedArray[i].Length;
+            studentsToothedArray[i] = new Student[nColumns - i];
+            countElements += studentsToothedArray[i].Length;
         }
-        
-        if (countElements!= nRows* nColumns)
+
+        if (countElements != nRows * nColumns)
         {
             countElements = studentsToothedArray[0].Length + (nRows * nColumns - countElements);
             studentsToothedArray[0] = new Student[countElements];
