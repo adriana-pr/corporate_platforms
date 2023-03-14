@@ -58,12 +58,19 @@ public class Test
             }
         }
 
+        int k = 0;
         for (int i = 0; i < nRows; i++)
         {
-            studentsToothedArray[i] = new Student[nColumns - i];
+            if (k >= nColumns)
+            {
+                k = 0;
+            }
+            studentsToothedArray[i] = new Student[nColumns - k++];
             countElements += studentsToothedArray[i].Length;
+            
+          
         }
-
+        
         if (countElements != nRows * nColumns)
         {
             countElements = studentsToothedArray[0].Length + (nRows * nColumns - countElements);
@@ -77,6 +84,7 @@ public class Test
                 studentsToothedArray[i][j] = new Student();
                 studentsToothedArray[i][j].AddExams(exams);
             }
+            Console.WriteLine("\n---- " + studentsToothedArray[i].Length);
         }
 
         //Console.WriteLine("\nОдновимірний масив: ");
