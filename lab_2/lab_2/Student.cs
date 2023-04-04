@@ -152,6 +152,7 @@ namespace laboratory
             }
         }
 
+
         public override bool Equals(object? obj)
         {
             if (obj == null || !(obj is Student))
@@ -162,6 +163,7 @@ namespace laboratory
                 && (this.Education == ((Student)obj).Education)
             && (this.Group == ((Student)obj).Group);
         }
+
         public static bool operator ==(Student student1, Student student2)
         {
             return student1.Equals(student2);
@@ -171,12 +173,14 @@ namespace laboratory
         {
             return !student1.Equals(student2);
         }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(base.GetHashCode(), Education, Group);
         }
 
-        public object DeepCopy()
+
+        public override object DeepCopy()
         {
             Person person = (Person)base.DeepCopy();
             Student tempstudent = new Student(person, Education, Group);
@@ -200,6 +204,7 @@ namespace laboratory
             }
             return tempstudent;
         }
+
 
         public IEnumerable GetExamsAndTests()
         {
@@ -238,6 +243,7 @@ namespace laboratory
         {
             return new StudentEnumerator(this);
         }
+
 
         public IEnumerable PassedTestsAndExams()
         {

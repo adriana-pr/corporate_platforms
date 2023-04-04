@@ -30,42 +30,42 @@ public class MainTest
         student.Exam = exams;
         student.Test = tests;
 
-        //Console.WriteLine(student.ToString());
-        //Console.WriteLine(student.Person);
-        //Student studentCopy = (Student)student.DeepCopy();
-        //student.Name = "Katya";
-        //Console.WriteLine(student.ToString());
-        //Console.WriteLine("\n Копія ----------------\n"+studentCopy.ToString());
+        Console.WriteLine(student.ToString());
+        Console.WriteLine(student.Person);
+        Student studentCopy = (Student)student.DeepCopy();
+        student.Name = "Katya";
+        Console.WriteLine(student.ToString());
+        Console.WriteLine("\n Копія ----------------\n" + studentCopy.ToString());
 
 
-        //try
-        //{
+        try
+        {
 
-        //    student.Group = 80;
-        //}
-        //catch (ArgumentException e)
-        //{
-        //    Console.WriteLine(e);
-        //}
+            student.Group = 80;
+        }
+        catch (ArgumentException e)
+        {
+            Console.WriteLine(e);
+        }
 
-        //foreach(Exam exam in student.GetExamMoreThan(3))
-        //{
-        //    Console.WriteLine(exam);
-        //}
+        foreach (Exam exam in student.GetExamMoreThan(3))
+        {
+            Console.WriteLine(exam);
+        }
 
         foreach (object examAndTest in student)
         {
             Console.WriteLine(examAndTest);
         }
 
-        //foreach (object examAndTest in student.PassedTestsAndExams())
-        //{
-        //    Console.WriteLine(examAndTest);
-        //}
+        foreach (object examAndTest in student.PassedTestsAndExams())
+        {
+            Console.WriteLine(examAndTest);
+        }
 
-        //foreach (object examAndTest in student.PassedTestsWithExams())
-        //{
-        //    Console.WriteLine(examAndTest);
-        //}
+        foreach (object examAndTest in student.PassedTestsWithExams())
+        {
+            Console.WriteLine(examAndTest);
+        }
     }
 }

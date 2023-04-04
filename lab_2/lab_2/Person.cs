@@ -80,7 +80,7 @@ namespace laboratory
             return !person1.Equals(person2);
         }
 
-        public virtual  int GetHashCode()
+        public override int GetHashCode()
         {
             return HashCode.Combine(Name, LastName, DateOfBirth);
         }
