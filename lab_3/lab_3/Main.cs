@@ -12,6 +12,9 @@ public class MainTest
 
         StudentCollection students = new StudentCollection();
         students.AddDefaults();
+        students.AddDefaults();
+        students.AddDefaults();
+        students.AddDefaults();
         Console.WriteLine(students);
 
         students.SortByLastName();

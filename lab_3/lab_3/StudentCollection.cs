@@ -14,9 +14,8 @@ namespace lab_3
         }
         public StudentCollection()
         {
-
+        
         }
-
         public List<Student> Students {
             get => _students;
             set => _students = value;
@@ -60,14 +59,14 @@ namespace lab_3
 
         public void AddStudents(params Student[] newStudents)
         {
+            if (newStudents == null || newStudents.Length==0) { return; }
             if (Students == null) Students = new List<Student> { };
-            if (newStudents == null) { return; }
             Students.AddRange(newStudents);
         }
 
         public override string ToString()
         {
-            if (Students==null)
+            if (Students==null || Students.Count == 0)
             {
                 return "Список студентів порожній";
             }
@@ -83,7 +82,7 @@ namespace lab_3
 
         public  string ToShortString()
         {
-            if (Students == null)
+            if (Students == null || Students.Count == 0)
             {
                 return "Список студентів порожній";
             }

@@ -7,9 +7,9 @@ namespace lab_3
 {
     public class Person: IDateAndCopy, IComparable, IComparer<Person>
     {
-        protected string _name;
-        protected string _lastName;
-        protected DateTime _dateOfBirth;
+        protected string _name = default!;
+        protected string _lastName = default!;
+        protected DateTime _dateOfBirth = default!;
 
         public Person(string name, string lastName, DateTime dateOfBirth)
         {
@@ -94,7 +94,7 @@ namespace lab_3
             return tempPerson;
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(object? obj)
         {
             if (obj==null)
             {
@@ -106,9 +106,9 @@ namespace lab_3
 
         public int Compare(Person? x, Person? y)
         {
-            if (x == null) return -1;
-            if (y == null) return 1;
-            if (x == null && y == null) return 0;
+            if (x is null) return -1;
+            if (y is null) return 1;
+            if (x is null && y is null) return 0;
             return x.DateOfBirth.CompareTo(y.DateOfBirth);
         }
     }

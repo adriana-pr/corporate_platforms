@@ -13,8 +13,8 @@ namespace lab_3
     {
         private Education _education;
         private int _group;
-        private List<Exam> _exam;
-        private List<Test> _test;
+        private List<Exam> _exam = default!;
+        private List<Test> _test= default!;
 
         public Student( Person person, Education education, int group):base(person.Name, person.LastName, person.DateOfBirth)
         {
@@ -282,11 +282,12 @@ namespace lab_3
             }
         }
 
+
         public int Compare(Student? x, Student? y)
         {
-            if (x == null) return -1;
-            if (y == null) return 1;
-            if (x == null && y == null) return 0;
+            if (x is null && y is null) return 0;
+            if (x is null) return -1;
+            if (y is null) return 1;
             return x.AveregaMarks().CompareTo(y.AveregaMarks()); ;
         }
 
