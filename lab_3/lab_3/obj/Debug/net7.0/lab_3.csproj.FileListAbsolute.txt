@@ -1,0 +1,15 @@
+/Users/mac/Documents/ПКІС/lab_3/lab_3/bin/Debug/net7.0/lab_3
+/Users/mac/Documents/ПКІС/lab_3/lab_3/bin/Debug/net7.0/lab_3.deps.json
+/Users/mac/Documents/ПКІС/lab_3/lab_3/bin/Debug/net7.0/lab_3.runtimeconfig.json
+/Users/mac/Documents/ПКІС/lab_3/lab_3/bin/Debug/net7.0/lab_3.dll
+/Users/mac/Documents/ПКІС/lab_3/lab_3/bin/Debug/net7.0/lab_3.pdb
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.csproj.AssemblyReference.cache
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.AssemblyInfoInputs.cache
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.AssemblyInfo.cs
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.csproj.CoreCompileInputs.cache
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.dll
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/refint/lab_3.dll
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.pdb
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/lab_3.genruntimeconfig.cache
+/Users/mac/Documents/ПКІС/lab_3/lab_3/obj/Debug/net7.0/ref/lab_3.dll
