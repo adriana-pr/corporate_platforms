@@ -11,11 +11,11 @@ namespace lab_4
 
         public void StudentCountChanged(object source, StudentListHandlerEventArgs args)
         {
-            journalEntry.Add( new JournalEntry(args.nameEvent, args.changeType, args.studentChange.ToString()));
+            journalEntry.Add( new JournalEntry(args.NameEvent, args.ChangeType, args.StudentChange.ToString()));
         }
         public void  StudentReferenceChanged(object source, StudentListHandlerEventArgs args)
         {
-            journalEntry.Add(new JournalEntry(args.nameEvent, args.changeType, args.studentChange.ToString()));
+            journalEntry.Add(new JournalEntry(args.NameEvent, args.ChangeType, args.StudentChange.ToString()));
 
         }
 

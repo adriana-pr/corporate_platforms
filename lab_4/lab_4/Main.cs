@@ -31,7 +31,7 @@ public class MainTest
         students1.Remove(0);
         students2.Remove(1);
 
-        //students1[0]= new Student();
+        students1[0]= new Student();
         //students2[1] = new Student();
 
         Console.WriteLine(journal1);

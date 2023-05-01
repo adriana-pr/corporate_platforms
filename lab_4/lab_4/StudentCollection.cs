@@ -6,13 +6,13 @@ namespace lab_4
 {
 	public class StudentCollection
 	{
-        private List<Student> _students;
+        private List<Student> _students = default!;
 
         public delegate void StudentListHandler(object source, StudentListHandlerEventArgs args);
-        public string nameCollection { get; set; }
+        public string NameCollection { get; set; } = default!;
 
-        public event StudentListHandler StudentCountChanged;
-        public event StudentListHandler StudentReferenceChanged;
+        public event StudentListHandler StudentCountChanged = default!;
+        public event StudentListHandler StudentReferenceChanged = default!;
 
         public StudentCollection(List<Student> students)
         {
@@ -21,7 +21,7 @@ namespace lab_4
 
         public StudentCollection( string name)
         {
-            nameCollection = name;
+            NameCollection = name;
         }
         public StudentCollection()
         {
@@ -37,8 +37,9 @@ namespace lab_4
             Students = new List<Student>();
             Person person1 = new Person("Ivan", "Nivanova", new DateTime(2000, 1, 30));
             Person person2 = new Person("Tanya", "Ivanova", new DateTime(2003, 1, 30));
+            Person person3 = new Person("Katya", "Ivanova", new DateTime(2003, 1, 30));
 
-        
+
             List<Exam> exams1 = new List<Exam>();
             List<Test> tests1 = new List<Test>();
             exams1.Add(new Exam("wed-programming", 5, new DateTime(2023, 1, 23)));
@@ -63,11 +64,17 @@ namespace lab_4
             student2.Exam = exams2;
             student2.Test = tests2;
 
+            Student student3 = new Student(person3, Education.Master, 301);
+            student3.Exam = exams1;
+            student3.Test = tests1;
+
             Students.Add(student1);
             Students.Add(student2);
+            Students.Add(student3);
 
-            StudentCountChanged.Invoke(this, new StudentListHandlerEventArgs(nameCollection, "added element", student1));
-            StudentCountChanged.Invoke(this, new StudentListHandlerEventArgs(nameCollection, "added element", student2));
+            StudentCountChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "added element", student1));
+            StudentCountChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "added element", student2));
+            StudentCountChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "added element", student3));
 
         }
 
@@ -78,7 +85,7 @@ namespace lab_4
             foreach (Student student in newStudents)
             {
                 Students.Add(student);
-                StudentCountChanged.Invoke(this, new StudentListHandlerEventArgs(nameCollection, "added element", student));
+                StudentCountChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "added element", student));
 
             }
 
@@ -160,25 +167,25 @@ namespace lab_4
 
         }
 
-        public bool Remove(int j)
+        public bool Remove(int index)
         {
-            if (j>=Students.Count)
+            if (index >= Students.Count)
             {
                 return false;
             }
-            Student student = Students[j];
-            Students.RemoveAt(j);
-            StudentCountChanged.Invoke(this, new StudentListHandlerEventArgs(nameCollection, "removed element", student));
+            Student student = Students[index];
+            Students.RemoveAt(index);
+            StudentCountChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "removed element", student));
             return true;
         }
 
-        public Student this[int j]
+        public Student this[int index]
         {
-            get { return Students[j]; }
+            get { return Students[index]; }
             set
             {
-                Students[j] = value;
-                StudentReferenceChanged.Invoke(this, new StudentListHandlerEventArgs(nameCollection, "changed element", value));
+                Students[index] = value;
+                StudentReferenceChanged?.Invoke(this, new StudentListHandlerEventArgs(NameCollection, "changed element", Students[index]));
 
             }
         }

@@ -7,8 +7,8 @@ namespace lab_4
 {
 	public class Test
 	{
-        private string _nameSubject;
-        private bool _credit;
+        private string _nameSubject = default!;
+        private bool _credit = default!;
 
         public Test(string name, bool credit)
         {
